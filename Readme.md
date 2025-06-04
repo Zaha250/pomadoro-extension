@@ -1,0 +1,1 @@
+# Расширения Pomadoro для Chrome
