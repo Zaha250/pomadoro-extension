@@ -1,1 +1,1 @@
-# Расширения Pomadoro для Chrome
+# Расширения Pomodoro для Chrome
