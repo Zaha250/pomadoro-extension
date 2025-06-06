@@ -2,6 +2,7 @@ import {Pomodoro} from "./pomodoro.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const toggleBtnEl = document.querySelector(".toggle-play");
+    const breakBtnEl = document.querySelector(".btn-break");
     const timerDisplayEl = document.getElementById("timer-display");
 
     if(!toggleBtnEl || !timerDisplayEl) {
@@ -16,16 +17,23 @@ document.addEventListener("DOMContentLoaded", function() {
          if(e.target.classList.contains("active")) {
              pomodoro.pause();
              e.target.classList.remove("active");
-             e.target.textContent = 'Play';
+             e.target.textContent = 'Начать сессию';
          } else {
              pomodoro.start();
              e.target.classList.add("active");
-             e.target.textContent = 'Pause';
+             e.target.textContent = 'Пауза';
          }
     });
 
-
     pomodoro.onEnd(() => {
-        alert('ENG');
+        if(pomodoro.isBusySession) {
+            console.log('Отдых');
+            breakBtnEl.style.display = 'inline-flex';
+            toggleBtnEl.style.display = 'none';
+        } else {
+            breakBtnEl.style.display = 'none';
+            toggleBtnEl.style.display = 'inline-flex';
+            console.log('Пора воркать');
+        }
     });
 });
