@@ -55,6 +55,12 @@ html{
     font-size: 24px;
 }
 
+.btn-break{
+    display: none;
+    background-color: #00d97e;
+    font-size: 24px;
+}
+
 .toggle-play.active {
     background-color: #e63757;
 }
